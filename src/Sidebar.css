@@ -1,0 +1,26 @@
+.sidebar {
+    width: 200px;
+  }
+  
+  .sidebar .MuiDrawer-paper {
+    width: 270px;
+  }
+  
+  .sidebar .MuiListItemIcon-root {
+    min-width: 60px;
+  }
+  
+  .sidebar .MuiListItemText-root {
+    margin-left: -10px;
+  }
+  
+  .sidebar .MuiTypography-body1 {
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(124, 24, 223);
+  }
+  
+   .icon {
+    font-size: 124%; /* Adjust the size as needed */
+  }
+  

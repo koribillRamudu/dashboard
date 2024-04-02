@@ -20,7 +20,7 @@ function Sidebar() {
           </ListItemIcon>
           <ListItemText primary="Students" />
         </ListItem>
-        <ListItem button component={Link} to="/applications">
+          <ListItem button component="a" href="https://ramudu9054.github.io/resumebuliderapp/page1.html" target="_blank" rel="noopener noreferrer">
           <ListItemIcon>
             <DescriptionIcon sx={{ fontSize: '30px',color:'black' }}/>
           </ListItemIcon>

@@ -24,6 +24,7 @@ function Sidebar() {
           <ListItemIcon>
             <DescriptionIcon sx={{ fontSize: '30px',color:'black' }}/>
           </ListItemIcon>
+           <ListItem button component="a" https://koribillramudu.github.io/applications" target="_blank" rel="noopener noreferrer">
           <ListItemText primary="Applications" />
         </ListItem>
       </List>

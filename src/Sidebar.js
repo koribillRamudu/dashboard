@@ -20,7 +20,6 @@ function Sidebar() {
           </ListItemIcon>
           <ListItemText primary="Students" />
         </ListItem>
-        {/* Use Link component for the "Applications" link */}
         <ListItem button component={Link} to="/applications">
           <ListItemIcon>
             <DescriptionIcon sx={{ fontSize: '30px', color: 'black' }} />

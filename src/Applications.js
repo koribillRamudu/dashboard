@@ -83,9 +83,9 @@ const Applications = () => {
   
     // Send email to reviewer
     axios.post('http://localhost:5000/sendEmail', {  // Change the URL to point to your server
-      recipientEmail: 'koribillisrinivasarao200@gmail.com', // Change this to the reviewer's email
+      recipientEmail: selectedApplication.email, // Change this to the reviewer's email
       subject: 'Application Approved',
-      text: 'Your application has been approved.'
+      text: 'hello sir/madam Your application has been approved.'
     })
     .then(response => {
       console.log('Email sent successfully');
@@ -110,6 +110,18 @@ const Applications = () => {
       return app;
     });
     updateApplications(updatedApplications)
+        // Send email to reviewer
+        axios.post('http://localhost:5000/sendEmail', {  // Change the URL to point to your server
+        recipientEmail: selectedApplication.email, // Change this to the reviewer's email
+        subject: 'Application denied',
+        text: 'hello sir/madam Your application has been denied sorry.'
+      })
+      .then(response => {
+        console.log('Email sent successfully');
+      })
+      .catch(error => {
+        console.error('Error sending email:', error);
+      });
     setApplications(updatedApplications);
     setApprovalMessage('Your application denial was successful.');
     setDialogOpen(false); // Close the dialog after action
@@ -207,6 +219,7 @@ const Applications = () => {
               <Typography variant="body1" className={classes.mediumText}>Education: {selectedApplication.education}</Typography>
               <Typography variant="body1" className={classes.mediumText}>Personal Info: {selectedApplication.personalInfo}</Typography>
               <Typography variant="body1" className={classes.mediumText}>Phone Number: {selectedApplication.phoneNumber}</Typography>
+              <Typography variant='body1' className={classes.mediumText}>email:{selectedApplication.email}</Typography>
               <Typography variant="body1" color='orange' className={classes.mediumText}>Status:  
               <span style={{ color: 
                               selectedApplication.status === 'success' ? 'green' :

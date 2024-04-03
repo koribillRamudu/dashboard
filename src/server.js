@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
     user: 'sekharramudu9054@gmail.com',
-    pass: '8008196791@R'
+    pass: 'cgfo nzot twqy pfkd' // Replace with the actual app-specific password
   }
 });
 
@@ -37,7 +37,7 @@ app.get('/applicationsData', (req, res) => {
 
 app.post('/updateApplications', (req, res) => {
   const { applications } = req.body;
-  const updatedData = applications.map(app => `${app.id},${app.name},${app.education},${app.personalInfo},${app.phoneNumber},${app.email},${app.status}`).join('\n');
+  const updatedData = applications.map(app => `${app.id},${app.name},${app.education},${app.personalInfo},${app.phoneNumber},${app.email},${app.status},${app.email}`).join('\n');
 
   fs.writeFile('applicationsData.txt', updatedData, 'utf8', err => {
     if (err) {

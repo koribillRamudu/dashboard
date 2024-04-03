@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ApplicationDashboard = () => {
+const Applications = () => {
   const classes = useStyles();
   const [applications, setApplications] = useState([]);
   const [selectedApplication, setSelectedApplication] = useState(null);
@@ -63,32 +63,44 @@ const ApplicationDashboard = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
-    axios.get('/applicationsData.txt')
+    axios.get('http://localhost:5000/applicationsData') // Update URL to include full server address
       .then(response => {
-        const lines = response.data.split('\n');
-        const data = lines.map(line => {
-          const [id, name, education, personalInfo, phoneNumber, email, status] = line.split(',');
-          return { id, name, education, personalInfo, phoneNumber, email, status: status.trim() };
-        });
-        setApplications(data);
+        setApplications(response.data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
   }, []);
-	 const handleApprove = () => {
+  const handleApprove = () => {
     const updatedApplications = applications.map(app => {
       if (app.id === selectedApplication.id) {
         return { ...app, status: 'success' };
       }
       return app;
     });
-
+  
+    updateApplications(updatedApplications);
+  
+    // Send email to reviewer
+    axios.post('http://localhost:5000/sendEmail', {  // Change the URL to point to your server
+      recipientEmail: 'koribillisrinivasarao200@gmail.com', // Change this to the reviewer's email
+      subject: 'Application Approved',
+      text: 'Your application has been approved.'
+    })
+    .then(response => {
+      console.log('Email sent successfully');
+    })
+    .catch(error => {
+      console.error('Error sending email:', error);
+    });
+  
     setApplications(updatedApplications);
     setApprovalMessage('Your application approval was successful.');
     setDialogOpen(false); // Close the dialog after action
   };
-
+  
+  
+  
 
   const handleDeny = () => {
     const updatedApplications = applications.map(app => {
@@ -97,10 +109,20 @@ const ApplicationDashboard = () => {
       }
       return app;
     });
-
+    updateApplications(updatedApplications)
     setApplications(updatedApplications);
     setApprovalMessage('Your application denial was successful.');
     setDialogOpen(false); // Close the dialog after action
+  };
+
+  const updateApplications = updatedApplications => {
+    axios.post('/updateApplications', { applications: updatedApplications })
+      .then(response => {
+        setApplications(updatedApplications);
+      })
+      .catch(error => {
+        console.error('Error updating application data:', error);
+      });
   };
 
   const filterApplications = () => {
@@ -213,4 +235,4 @@ const ApplicationDashboard = () => {
   );
 };
 
-export default ApplicationDashboard;
+export default Applications;

@@ -4,4 +4,3 @@
 4,NOPQ,B.Tech. EEE,Female23 years,800819698,likithadurgalla@gmail.com,pending
 5,NOPQ,B.Tech. EEE,Female23 years,800819698,likithadurgalla@gmail.com,pending
 6,zPQ,B.Tech. EEE,Female23 years,800819698,likithadurgalla@gmail.com,pending
-7,zPdlgmjreoQ,B.Tech. EEE,Female23 years,800819698,likithadurgalla@gmail.com,pending

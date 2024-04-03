@@ -6,23 +6,23 @@ import './Sidebar.css';
 
 function Sidebar() {
   return (
-    <Drawer variant="permanent" anchor="left" className="sidebar"> {/* Added class for Sidebar styling */}
+    <Drawer variant="permanent" anchor="left" className="sidebar">
       <List>
         <ListItem button component={Link} to="/">
           <ListItemIcon>
-            <DashboardIcon sx={{ fontSize: '30px',color:'black' }}/>
+            <DashboardIcon />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
         <ListItem button component={Link} to="/students">
           <ListItemIcon>
-            <PeopleIcon sx={{ fontSize: '30px',color:'black' }}/>
+            <PeopleIcon />
           </ListItemIcon>
           <ListItemText primary="Students" />
         </ListItem>
         <ListItem button component={Link} to="/applications">
           <ListItemIcon>
-            <DescriptionIcon sx={{ fontSize: '30px',color:'black' }}/>
+            <DescriptionIcon />
           </ListItemIcon>
           <ListItemText primary="Applications" />
         </ListItem>

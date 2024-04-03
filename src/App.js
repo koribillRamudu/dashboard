@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import Dashboard from './Dashboard';
 import Students from './Students';
 import Applications from './Applications';
-import './App.css'; // Import the CSS file
+import './App.css';
 
 function App() {
   return (

@@ -1,0 +1,6 @@
+1,ABCD,B.E. Computer Science,Male25 years,800819691,sekharramudu9054@gmail.com,pending
+2,EFGH,B.A,Male 23 years,800324134,sekhar@gmail.com,pending
+3,IJKLM,M.Sc. Mathematics,Female 27 years,803567811,laxmi@gmail.com,pending
+4,NOPQ,B.Tech. EEE,Female23 years,800819698,likithadurgalla@gmail.com,pending
+5,NOPQ,B.Tech. EEE,Female23 years,800819698,likithadurgalla@gmail.com,pending
+6,zPQ,B.Tech. EEE,Female23 years,800819698,likithadurgalla@gmail.com,pending

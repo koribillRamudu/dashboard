@@ -78,19 +78,19 @@ const Applications = () => {
       }
       return app;
     });
-  
     updateApplications(updatedApplications);
-    axios.post('http://localhost:5000/sendEmail', {  
+      axios.post('http://localhost:5000/sendEmail', {  
       recipientEmail: selectedApplication.email,
       subject: 'Application Approved',
-      text: `Dear ${selectedApplication.name},\n\nYour application has been approved.`
+      text: `Dear ${selectedApplication.name},\n\nWe are thrilled to inform you that your application has been approved!\n\nPlease proceed with the payment by clicking here:(https://rzp.io/l/SZfKRJA).\n\nLooking forward to having you on board!`
     })
-    .then(response => {
-      console.log('Email sent successfully');
-    })
-    .catch(error => {
-      console.error('Error sending email:', error);
-    });
+  .then(response => {
+    console.log('Email sent successfully');
+  })
+  .catch(error => {
+    console.error('Error sending email:', error);
+  });
+
   
     setApplications(updatedApplications);
     setApprovalMessage('Your application approval was successful.');

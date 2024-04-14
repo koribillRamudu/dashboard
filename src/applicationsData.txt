@@ -1,7 +1,9 @@
-1,ABCD,B.E. Computer Science,Male25 years,800819691,sekharramudu9054@msitprogram.net,pending
-2,EFGH,B.A,Male 23 years,800324134,lalithahari2002@gmail.com,pending
-3,IJKLM,M.Sc. Mathematics,Female 27 years,803567811,roshanyacham301@gmail.com,pending
-4,NOPQ,B.Tech. EEE,Female23 years,800819698,viswa968@msitprogram.net,pending
-5,NOPQ,B.Tech. EEE,Female23 years,800819698,roshnikumbhar.k@gmial.com,pending
-6,zPQ,B.Tech. EEE,Female23 years,800819698,akhil07@gmail.com,pending
-7,zPQ,B.Tech. EEE,Female23 years,800819698,sridivya1508@gmail.com,pending
+1,ramudu,B.E. Computer Science,Male25 years,800819691,sekharramudu9054@msitprogram.net,pending
+2,lalitha,B.A,Male 23 years,800324134,lalithahari2002@gmail.com,pending
+3,roshan,M.Sc. Mathematics,Female 27 years,803567811,roshanyacham301@gmail.com,pending
+4,viswa,B.Tech. EEE,male27 years,800819698,viswa968@msitprogram.net,pending
+5,roshnikumbhar,B.Tech. EEE,Female23 years,800819698,roshnikumbhar.k@gmial.com,pending
+6,akhil,B.Tech. EEE,Female23 years,800819698,akhil07@gmail.com,pending
+7,sridivya,B.Tech. EEE,Female23 years,800819698,sridivya1508@gmail.com,pending
+8,bharadwaj,B.tech,Male25,76969669,bharadwaj.21122001@gmail.com,pending
+9,manasa,B.tech,Female25,76969669,manasa_a@msitprogram.net,pending

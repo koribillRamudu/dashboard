@@ -18,7 +18,7 @@ function Sidebar() {
           <ListItemIcon>
             <PeopleIcon />
           </ListItemIcon>
-          <ListItemText primary="Students" />
+          <ListItemText primary="Payments" />
         </ListItem>
         <ListItem button component={Link} to="/applications">
           <ListItemIcon>

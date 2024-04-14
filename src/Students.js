@@ -1,12 +1,12 @@
 import React from 'react';
-import './Students.css'; // Import the CSS file
+import PaymentLink from './PaymentLink';
 
 function Students() {
   return (
     <div className="center-container">
       <div className="message-container">
-        <h1>Students</h1>
-        <p>Manage your students here.</p>
+        <h1>PaymentLink</h1>
+        <PaymentLink />
       </div>
     </div>
   );

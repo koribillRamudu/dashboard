@@ -10,12 +10,12 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(cors());
 
-// Nodemailer transporter setup
+
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
     user: 'sekharramudu9054@gmail.com',
-    pass: 'cgfo nzot twqy pfkd' // Replace with the actual app-specific password
+    pass: 'cgfo nzot twqy pfkd'
   }
 });
 
@@ -49,7 +49,7 @@ app.post('/updateApplications', (req, res) => {
   });
 });
 
-// POST route to send email
+
 app.post('/sendEmail', (req, res) => {
   const { recipientEmail, subject, text } = req.body;
 

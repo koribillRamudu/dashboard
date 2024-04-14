@@ -63,7 +63,7 @@ const Applications = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/applicationsData') // Update URL to include full server address
+    axios.get('http://localhost:5000/applicationsData')
       .then(response => {
         setApplications(response.data);
       })
@@ -80,12 +80,10 @@ const Applications = () => {
     });
   
     updateApplications(updatedApplications);
-  
-    // Send email to reviewer
-    axios.post('http://localhost:5000/sendEmail', {  // Change the URL to point to your server
-      recipientEmail: selectedApplication.email, // Change this to the reviewer's email
+    axios.post('http://localhost:5000/sendEmail', {  
+      recipientEmail: selectedApplication.email,
       subject: 'Application Approved',
-      text: 'hello sir/madam Your application has been approved.'
+      text: `Dear ${selectedApplication.name},\n\nYour application has been approved.`
     })
     .then(response => {
       console.log('Email sent successfully');
@@ -96,7 +94,7 @@ const Applications = () => {
   
     setApplications(updatedApplications);
     setApprovalMessage('Your application approval was successful.');
-    setDialogOpen(false); // Close the dialog after action
+    setDialogOpen(false);
   };
   
   
@@ -110,11 +108,10 @@ const Applications = () => {
       return app;
     });
     updateApplications(updatedApplications)
-        // Send email to reviewer
-        axios.post('http://localhost:5000/sendEmail', {  // Change the URL to point to your server
-        recipientEmail: selectedApplication.email, // Change this to the reviewer's email
+        axios.post('http://localhost:5000/sendEmail', {  
+        recipientEmail: selectedApplication.email, 
         subject: 'Application denied',
-        text: 'hello sir/madam Your application has been denied sorry.'
+        text: `Dear ${selectedApplication.name},\n\nYour application has been denied.`
       })
       .then(response => {
         console.log('Email sent successfully');
@@ -124,7 +121,7 @@ const Applications = () => {
       });
     setApplications(updatedApplications);
     setApprovalMessage('Your application denial was successful.');
-    setDialogOpen(false); // Close the dialog after action
+    setDialogOpen(false); 
   };
 
   const updateApplications = updatedApplications => {

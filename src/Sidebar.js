@@ -14,17 +14,17 @@ function Sidebar() {
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
-        <ListItem button component={Link} to="/students">
-          <ListItemIcon>
-            <PeopleIcon />
-          </ListItemIcon>
-          <ListItemText primary="Payments" />
-        </ListItem>
         <ListItem button component={Link} to="/applications">
           <ListItemIcon>
             <DescriptionIcon />
           </ListItemIcon>
           <ListItemText primary="Applications" />
+        </ListItem>
+        <ListItem button component={Link} to="/students">
+          <ListItemIcon>
+            <PeopleIcon />
+          </ListItemIcon>
+          <ListItemText primary="Payments" />
         </ListItem>
       </List>
     </Drawer>

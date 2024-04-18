@@ -34,7 +34,6 @@ const StatusListItem = styled.li`
   font-size: 18px;
   color: ${props => props.color};
 `;
-
 function Dashboard() {
   const [applications, setApplications] = useState([]);
   const [statusCounts, setStatusCounts] = useState({ pending: 0, denied: 0, success: 0 });

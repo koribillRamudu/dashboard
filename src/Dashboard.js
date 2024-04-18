@@ -1,9 +1,43 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Chart from 'chart.js/auto';
+import styled from 'styled-components';
+
+const DashboardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+`;
+
+const MessageContainer = styled.div`
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+`;
+
+const ChartContainer = styled.div`
+  max-width: 800%;
+  margin-top: 20px;
+`;
+
+const StatusList = styled.div`
+  margin-top: 40px;
+  padding-right: -120px;
+`;
+
+const StatusListItem = styled.li`
+  margin-bottom: 10px;
+  padding-right: 130px;
+  font-size: 18px;
+  color: ${props => props.color};
+`;
 
 function Dashboard() {
   const [applications, setApplications] = useState([]);
+  const [statusCounts, setStatusCounts] = useState({ pending: 0, denied: 0, success: 0 });
   const chartRef = useRef(null);
 
   useEffect(() => {
@@ -29,7 +63,7 @@ function Dashboard() {
       data: {
         labels: ['Pending', 'Denied', 'Success'],
         datasets: [{
-          data: getStatusCounts(),
+          data: [statusCounts.pending, statusCounts.denied, statusCounts.success],
           backgroundColor: ['#FFA500', '#FF0000', 'green'],
           hoverBackgroundColor: ['#FFA500', '#FF0000', 'green']
         }]
@@ -41,25 +75,47 @@ function Dashboard() {
 
     // Store the chart instance in the ref
     chartRef.current = newChartInstance;
-  }, [applications]); // Re-render chart when applications change
+  }, [statusCounts]); // Re-render chart when statusCounts change
+
+  useEffect(() => {
+    setStatusCounts(getStatusCounts());
+  }, [applications]); // Update statusCounts when applications change
 
   const getStatusCounts = () => {
-    const counts = { pending: 0, denied: 0, success: 0 };
+    let pendingCount = 0;
+    let deniedCount = 0;
+    let successCount = 0;
+    
     applications.forEach(application => {
-      counts[application.status]++;
+      if (application.status === 'pending') {
+        pendingCount++;
+      } else if (application.status === 'denied') {
+        deniedCount++;
+      } else if (application.status === 'success') {
+        successCount++;
+      }
     });
-    return [counts.pending, counts.denied, counts.success];
+
+    return { pending: pendingCount, denied: deniedCount, success: successCount };
   };
 
   return (
-    <div className="center-container">
-      <div className="message-container">
-        <center><h1>Dashboard</h1></center>
-        <div className="chart-container" style={{ maxWidth: '400px', margin: 'auto' }}>
-          <canvas id="statusPieChart" style={{ width: '100%', height: 'auto' }}></canvas>
-        </div>
-      </div>
-    </div>
+    <DashboardContainer>
+      <MessageContainer>
+        <h1>Dashboard</h1>
+        <ChartContainer>
+          <canvas id="statusPieChart"></canvas>
+        </ChartContainer>
+        <StatusList>
+          <h2>Status Count</h2>
+          <ul>
+            <StatusListItem color="#FFA500">Pending: {statusCounts.pending}</StatusListItem>
+            <StatusListItem color="#FF0000">Denied: {statusCounts.denied}</StatusListItem>
+            <StatusListItem color="green">Success: {statusCounts.success}</StatusListItem>
+          </ul>
+        </StatusList>
+      </MessageContainer>
+    </DashboardContainer>
   );
 }
 

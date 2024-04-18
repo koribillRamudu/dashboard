@@ -1,46 +1,21 @@
+/* Default sidebar styling */
 .sidebar {
-  width: 240px; /* Default width for larger screens */
-  transition: width 0.3s ease; /* Smooth transition for width changes */
+  transition: width 0.3s ease, transform 0.3s ease;
 }
 
 .sidebar .MuiDrawer-paper {
-  width: 200px; /* Expanded width for larger screens */
-  transition: width 0.3s ease; /* Smooth transition for width changes */
+  width: 240px; /* Default width */
+  transition: width 0.3s ease, transform 0.3s ease;
 }
 
-.sidebar .MuiListItemIcon-root {
-  min-width: 40px; /* Adjusted minimum width for icon */
-}
-
-.sidebar .MuiListItemText-root {
-  margin-left: 8px; /* Adjusted margin for list item text */
-}
-
-.sidebar .MuiTypography-body1 {
-  font-size: 16px; /* Adjusted font size for list item text */
-  font-weight: bold;
-  color: #333; /* Adjusted text color */
-}
-
-/* Media query for smaller screens */
+/* Adjustments for smaller screens */
 @media (max-width: 960px) {
-  .sidebar {
-    width: 64px; /* Decreased width for smaller screens */
-  }
-  
   .sidebar .MuiDrawer-paper {
-    width: 64px; /* Decreased expanded width for smaller screens */
+    width: 64px; /* Reduced width on smaller screens */
+    transform: translateX(-100%); /* Initially off-screen */
   }
-  
-  .sidebar .MuiListItemIcon-root {
-    min-width: 24px; /* Decreased minimum width for icon on smaller screens */
-  }
-  
-  .sidebar .MuiListItemText-root {
-    margin-left: 0; /* Adjusted margin for list item text on smaller screens */
-  }
-  
-  .sidebar .MuiTypography-body1 {
-    font-size: 14px; /* Decreased font size for list item text on smaller screens */
+
+  .sidebar.open .MuiDrawer-paper {
+    transform: translateX(0); /* Slide in when open */
   }
 }

@@ -1,3 +1,5 @@
+// client-side (Applications.js)
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Container, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, InputLabel, List, ListItem, ListItemText, MenuItem, Paper, Select, TextField, Typography } from '@material-ui/core';
@@ -71,19 +73,25 @@ const Applications = () => {
         console.error('Error fetching data:', error);
       });
   }, []);
-  const handleApprove = () => {
-    const updatedApplications = applications.map(app => {
-      if (app.id === selectedApplication.id) {
-        return { ...app, status: 'success' };
-      }
-      return app;
-    });
-    updateApplications(updatedApplications);
-      axios.post('http://localhost:5000/sendEmail', {  
-      recipientEmail: selectedApplication.email,
-      subject: 'Application Approved',
-      text: `Dear ${selectedApplication.name},\n\nWe are thrilled to inform you that your application has been approved!\n\nPlease proceed with the payment by clicking here:(https://rzp.io/l/SZfKRJA).\n\nLooking forward to having you on board!`
-    })
+
+  // Applications.js
+
+// Inside handleApprove function
+const handleApprove = () => {
+  const updatedApplications = applications.map(app => {
+    if (app.id === selectedApplication.id) {
+      return { ...app, status: 'success' };
+    }
+    return app;
+  });
+
+  updateApplications(updatedApplications);
+
+  axios.post('http://localhost:5000/sendEmail', {  
+    recipientEmail: selectedApplication.email,
+    subject: 'Application Approved',
+    text: `Dear ${selectedApplication.name},\n\nWe are thrilled to inform you that your application has been approved!\n\nPlease proceed with the payment by clicking here:(https://rzp.io/l/SZfKRJA).\n\nLooking forward to having you on board!`
+  })
   .then(response => {
     console.log('Email sent successfully');
   })
@@ -91,14 +99,20 @@ const Applications = () => {
     console.error('Error sending email:', error);
   });
 
-  
-    setApplications(updatedApplications);
-    setApprovalMessage('Your application approval was successful.');
-    setDialogOpen(false);
-  };
-  
-  
-  
+  // Store approved application details in txt file
+  axios.post('http://localhost:5000/storeApprovedApplication', selectedApplication)
+    .then(response => {
+      console.log('Application details stored in txt file');
+    })
+    .catch(error => {
+      console.error('Error storing application details:', error);
+    });
+
+  setApplications(updatedApplications);
+  setApprovalMessage('Your application approval was successful.');
+  setDialogOpen(false);
+};
+
 
   const handleDeny = () => {
     const updatedApplications = applications.map(app => {
@@ -107,25 +121,28 @@ const Applications = () => {
       }
       return app;
     });
-    updateApplications(updatedApplications)
-        axios.post('http://localhost:5000/sendEmail', {  
-        recipientEmail: selectedApplication.email, 
-        subject: 'Application denied',
-        text: `Dear ${selectedApplication.name},\n\nYour application has been denied.`
-      })
-      .then(response => {
-        console.log('Email sent successfully');
-      })
-      .catch(error => {
-        console.error('Error sending email:', error);
-      });
+
+    updateApplications(updatedApplications);
+
+    axios.post('http://localhost:5000/sendEmail', {  
+      recipientEmail: selectedApplication.email, 
+      subject: 'Application denied',
+      text: `Dear ${selectedApplication.name},\n\nYour application has been denied.`
+    })
+    .then(response => {
+      console.log('Email sent successfully');
+    })
+    .catch(error => {
+      console.error('Error sending email:', error);
+    });
+
     setApplications(updatedApplications);
     setApprovalMessage('Your application denial was successful.');
     setDialogOpen(false); 
   };
 
   const updateApplications = updatedApplications => {
-    axios.post('/updateApplications', { applications: updatedApplications })
+    axios.post('http://localhost:5000/updateApplications', { applications: updatedApplications })
       .then(response => {
         setApplications(updatedApplications);
       })

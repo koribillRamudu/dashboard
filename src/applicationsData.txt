@@ -1,4 +1,4 @@
-1,ramudu,B.E. Computer Science,Male25 years,800819691,sekharramudu9054@msitprogram.net,success
+1,ramudu,B.E. Computer Science,Male25 years,800819691,sekharramudu9054@msitprogram.net,denied
 2,lalitha,B.A,Male 23 years,800324134,lalithahari2002@gmail.com,success
 3,roshan,M.Sc. Mathematics,Female 27 years,803567811,roshanyacham301@gmail.com,pending
 4,viswa,B.Tech. EEE,male27 years,800819698,viswa968@msitprogram.net,pending

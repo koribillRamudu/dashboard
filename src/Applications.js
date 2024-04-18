@@ -1,5 +1,3 @@
-// client-side (Applications.js)
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Container, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, InputLabel, List, ListItem, ListItemText, MenuItem, Paper, Select, TextField, Typography } from '@material-ui/core';
@@ -74,9 +72,6 @@ const Applications = () => {
       });
   }, []);
 
-  // Applications.js
-
-// Inside handleApprove function
 const handleApprove = () => {
   const updatedApplications = applications.map(app => {
     if (app.id === selectedApplication.id) {
@@ -98,8 +93,6 @@ const handleApprove = () => {
   .catch(error => {
     console.error('Error sending email:', error);
   });
-
-  // Store approved application details in txt file
   axios.post('http://localhost:5000/storeApprovedApplication', selectedApplication)
     .then(response => {
       console.log('Application details stored in txt file');

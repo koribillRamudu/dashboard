@@ -35,6 +35,20 @@ app.get('/applicationsData', (req, res) => {
   });
 });
 
+app.post('/updateApplications', (req, res) => {
+  const { applications } = req.body;
+  const updatedData = applications.map(app => `${app.id},${app.name},${app.education},${app.personalInfo},${app.phoneNumber},${app.email},${app.status}`).join('\n');
+
+  fs.writeFile('applicationsData.txt', updatedData, 'utf8', err => {
+    if (err) {
+      console.error('Error updating data file:', err);
+      res.status(500).send('Error updating data file');
+      return;
+    }
+    res.status(200).send('Data updated successfully');
+  });
+});
+
 app.post('/storeApprovedApplication', (req, res) => {
   const { id, name, education, personalInfo, phoneNumber, email, status } = req.body;
   const text = `${id},${name},${education},${personalInfo},${phoneNumber},${email},${status}`;

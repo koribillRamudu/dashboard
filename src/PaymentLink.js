@@ -1,12 +1,56 @@
 import React from 'react';
 
-function PaymentLink() {
+function CenteredContainer({ children }) {
   return (
-    <div>
-      <center><h2 style={{ marginBottom: '60px', color: '#333',paddingLeft:'70px' }}>Payment Dashboard</h2></center>
-      <center><p style={{ marginBottom: '30px', color: '#666',fontSize:'20px', paddingLeft:'70px' }}>Click <a href="https://dashboard.razorpay.com/app/orders" style={{ color: '#007bff', textDecoration: 'none', fontWeight: 'bold' }}>here</a> to payment Dashboard.</p></center>
-      </div>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh', 
+    }}>
+      {children}
+    </div>
   );
 }
+
+function PaymentLink() {
+  return (
+    <CenteredContainer>
+      <div style={styles.container}>
+        <div style={styles.content}>
+          <h2>Payment Dashboard</h2>
+          <p>Manage your payments with our payment dashboard.</p>
+          <a href="https://dashboard.razorpay.com/app/orders" target="_blank" rel="noopener noreferrer" style={styles.button}>Go to Payment Dashboard</a>
+        </div>
+      </div>
+    </CenteredContainer>
+  );
+}
+
+// Inline CSS styles
+const styles = {
+  container: {
+    textAlign: 'center', // Center the content horizontally
+    padding: '20px',
+  },
+  content: {
+    flex: '1',
+  },
+  button: {
+    display: 'inline-block',
+    padding: '10px 20px',
+    marginTop: '20px',
+    backgroundColor: '#007bff',
+    color: '#fff',
+    textDecoration: 'none',
+    borderRadius: '5px',
+    fontWeight: 'bold',
+  },
+  image: {
+    flex: '1',
+    maxWidth: '100%',
+    height: 'auto',
+  },
+};
 
 export default PaymentLink;

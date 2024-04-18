@@ -1,6 +1,4 @@
+
 1,ramudu,B.E. Computer Science,Male25 years,800819691,sekharramudu9054@msitprogram.net,pending
 7,sridivya,B.Tech. EEE,Female23 years,800819698,sridivya1508@gmail.com,denied
-3,roshan,M.Sc. Mathematics,Female 27 years,803567811,roshanyacham301@gmail.com,pending
-1,ramudu,B.E. Computer Science,Male25 years,800819691,sekharramudu9054@msitprogram.net,denied
-1,ramudu,B.E. Computer Science,Male25 years,800819691,sekharramudu9054@msitprogram.net,pending
-1,ramudu,B.E. Computer Science,Male25 years,800819691,sekharramudu9054@msitprogram.net,pending
+7,sridivya,B.Tech. EEE,Female23 years,800819698,sridivya1508@gmail.com,denied

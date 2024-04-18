@@ -8,7 +8,7 @@ function Sidebar() {
   return (
     <Drawer variant="permanent" anchor="left" className="sidebar">
       <List>
-        <ListItem button component={Link} to="/applications">
+        <ListItem button component={Link} to="/">
           <ListItemIcon>
             <DashboardIcon />
           </ListItemIcon>

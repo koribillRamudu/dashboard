@@ -30,7 +30,7 @@ const StatusList = styled.div`
 
 const StatusListItem = styled.li`
   margin-bottom: 10px;
-  padding-right: 130px;
+  padding-right: 150px;
   font-size: 18px;
   color: ${props => props.color};
 `;

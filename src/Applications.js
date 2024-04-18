@@ -155,7 +155,7 @@ const handleApprove = () => {
   const filteredApplications = filterApplications();
 
   return (
-    <Container maxWidth="lg" className={classes.root}>
+    <Container maxWidth="md" className={classes.root}>
       <Typography variant="h4" gutterBottom>Application Dashboard</Typography>
       <Grid container spacing={4} justify="center">
         <Grid item xs={12} md={9}>

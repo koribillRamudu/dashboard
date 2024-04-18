@@ -3,9 +3,11 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color:white;
   }
   
   .message-container {
     text-align: center;
+    background-color:white;
   }
   
